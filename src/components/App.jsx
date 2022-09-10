@@ -15,6 +15,9 @@ export class App extends Component {
     }));
   };
 
+  countTotalFeedback = ({ good, neutral, bad } = this.state) => 
+    Number(good) + Number(neutral) + Number(bad);
+
   render() {
     return (
       <>
@@ -25,6 +28,7 @@ export class App extends Component {
          <Statistics
             title={'Statistics'}
             state={this.state}
+            countTotalFeedback={this.countTotalFeedback()}
          />
       </>
     )

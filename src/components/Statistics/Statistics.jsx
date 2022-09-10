@@ -1,6 +1,7 @@
 const Statistics = ({
     title,
     state: { good, bad, neutral },
+    countTotalFeedback,
 }) => {
     return (
         <>
@@ -14,6 +15,13 @@ const Statistics = ({
            <p>
                Bad: <span>{bad}</span>
            </p>
+           {countTotalFeedback > 0 ? (
+              <p>
+                Total: <span>{countTotalFeedback}</span>
+              </p>
+           ) : (
+            ''
+           )}
         </>
     );
 };
