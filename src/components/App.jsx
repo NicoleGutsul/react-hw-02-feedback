@@ -1,6 +1,7 @@
 import { Component } from "react";
 import Controls from "./Controls/Controls";
 import Statistics from "./Statistics/Statistics";
+import Notification from "./Notification/Notification";
 
 export class App extends Component {
   state = {
@@ -27,13 +28,18 @@ export class App extends Component {
             addFeedback={this.addFeedback}
             options={['good', 'neutral', 'bad']}
          />
-         <Statistics
+         {this.state.good > 0 || this.state.bad > 0 || this.state.neutral > 0 ? (
+            <Statistics
             title={'Statistics'}
             state={this.state}
             countTotalFeedback={this.countTotalFeedback()}
             countPositiveFeedbackPercentage={this.countPositiveFeedbackPercentage()}
-         />
+        />
+         ) : (
+          <Notification/>
+         )}
+         
       </>
-    )
+    );
   }
 }
