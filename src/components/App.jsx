@@ -1,5 +1,6 @@
 import { Component } from "react";
 import Controls from "./Controls/Controls";
+import Statistics from "./Statistics/Statistics";
 
 export class App extends Component {
   state = {
@@ -20,6 +21,10 @@ export class App extends Component {
          <Controls 
             addFeedback={this.addFeedback}
             options={['good', 'neutral', 'bad']}
+         />
+         <Statistics
+            title={'Statistics'}
+            state={this.state}
          />
       </>
     )
